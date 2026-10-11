@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F39200">
+<link rel="icon" href="img/logo-icone.png">
+<title>Connexion · VALIDATOR</title>
+<link rel="stylesheet" href="css/commun.css"></head>
+<body><div class="auth">
+<aside class="marque"><div class="marque-carte"><img src="img/logo-complet.png" alt="VALIDATOR"></div></aside>
+<main class="formulaire">
+  <img class="logo" src="img/logo-complet.png" alt="VALIDATOR">
+  <h1>Connexion</h1>
+  <p class="sous">Connecte-toi pour recevoir les points.</p>
+  <label>Nom et prénoms</label>
+  <div id="nom"></div>
+  <label for="mdp">Mot de passe</label>
+  <div class="mdp"><input id="mdp" type="password" autocomplete="current-password"><button type="button" data-voir="mdp">Afficher</button></div>
+  <a href="#" class="oublie" id="oublie">Mot de passe oublié ?</a>
+  <p class="msg" id="msg" role="alert"></p>
+  <button class="btn" id="valider">Se connecter</button>
+  <p class="bas">Pas encore de compte ? <a href="inscription.html">Créer un compte</a></p>
+</main></div>
+<script type="module">
+import { LISTE } from "./data/chefs.js";   // liste des noms (chefs et sous-chefs pour l'instant)
+import { connexion } from "./js/auth.js";
+connexion(LISTE);
+</script></body></html>

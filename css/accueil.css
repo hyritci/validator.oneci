@@ -1,0 +1,48 @@
+/* Accueil VALIDATOR : menu orange à gauche, barre du haut, cartes de totaux, recherche et tableau */
+body.tdb{background:#f3f5f4}
+.app{display:grid;grid-template-columns:76px 1fr;min-height:100dvh}
+.cote{position:sticky;top:0;height:100dvh;display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px 0;background:linear-gradient(180deg,#F39200,#E07B00)}
+.cote img{width:46px;height:46px;margin-bottom:10px;padding:4px;object-fit:contain;background:#fff;border-radius:14px}
+.cote a,.cote button{width:48px;height:48px;display:grid;place-items:center;border:0;border-radius:14px;background:none;color:#fff;cursor:pointer}
+.cote .actif{background:rgba(255,255,255,.28)}.cote .bas{margin-top:auto}
+.cote svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.contenu{min-width:0}
+.barre{position:sticky;top:0;z-index:10;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px;padding:14px 24px;background:#fff;border-bottom:1px solid #e3e7e5}
+.equipe select{padding:8px 38px 8px 12px;border:0;border-radius:12px;font:inherit;font-size:20px;font-weight:700;color:#111;appearance:none;-webkit-appearance:none;
+  background:#f3f5f4 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center/16px}
+.equipe small{display:block;min-height:18px;margin:2px 0 0 12px;color:#6b7280}
+.jour{margin:0;color:#555}
+.etat{display:inline-block;margin-left:10px;padding:3px 10px;border-radius:99px;background:#eee;font-size:12px}
+.etat.ok{background:#e6f5ec;color:#0b6b33}.etat.ko{background:#fdeaea;color:#c62828}
+.btn-excel{height:46px;padding:0 22px;border:0;border-radius:12px;background:#1f8a3e;color:#fff;font:inherit;font-weight:700;letter-spacing:.4px;cursor:pointer}
+main{padding:24px}
+.cartes{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}
+.carte{padding:16px 18px;background:#fff;border:1px solid #e3e7e5;border-top:5px solid var(--ac);border-radius:18px;box-shadow:0 4px 14px rgba(0,0,0,.05)}
+.vert{--ac:#009A3E}.orange{--ac:#F39200}
+.carte h3{margin:0 0 10px;font-size:15px;font-weight:600;color:#444}
+.carte-corps{display:flex;align-items:center;gap:18px}
+.gros{font-size:clamp(40px,5vw,56px);font-weight:700;line-height:1;color:#222}
+.carte dl{flex:1;margin:0}.carte dl div{display:flex;justify-content:space-between;gap:10px;padding:2px 0;font-size:14px;color:#555}
+.carte dd{margin:0;font-weight:700;color:#222}.note{flex:1;margin:0;color:#6b7280;font-size:14px}
+.outils{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0 14px}
+.outils input{flex:1 1 260px;max-width:420px;height:46px;padding:0 18px 0 46px;border:2px solid #dfe4e1;border-radius:99px;font:inherit;
+  background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M20 20l-4-4'/%3E%3C/svg%3E") no-repeat 16px center/18px}
+.outils select{height:46px;padding:0 14px;border:2px solid #dfe4e1;border-radius:12px;background:#fff;font:inherit}
+.outils input:focus,.outils select:focus{outline:none;border-color:var(--orange)}
+.tableau{--cols:minmax(180px,2fr) minmax(140px,1.2fr) minmax(150px,1fr) 3fr;overflow:hidden;background:#fff;border:1px solid #e3e7e5;border-radius:18px}
+.tableau.sans-lieu{--cols:minmax(180px,2fr) minmax(150px,1fr) 3fr}.sans-lieu .col-lieu{display:none}
+.ligne{display:grid;grid-template-columns:var(--cols);gap:12px;align-items:center;padding:12px 18px;border-bottom:1px solid #eef1ef}
+.th{background:#fafbfa;font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#6b7280}
+.nom{font-weight:600}.nom small{display:block;font-weight:400;color:#6b7280}
+.pastille{display:inline-block;width:8px;height:8px;margin-right:8px;border-radius:50%;background:var(--orange)}
+.pts em{display:inline-block;margin:2px 6px 2px 0;padding:3px 10px;border-radius:99px;background:#f1f5f2;font-style:normal;font-size:14px}
+.pts b{margin-right:4px;color:#0b6b33}
+.vide{margin:0;padding:30px;text-align:center;color:#6b7280}
+@media(max-width:700px){
+  .app{grid-template-columns:1fr;padding-bottom:64px}
+  .cote{position:fixed;inset:auto 0 0 0;height:60px;flex-direction:row;justify-content:space-around;padding:6px;z-index:20}
+  .cote img{display:none}.cote .bas{margin:0}
+  .barre{flex-direction:column;align-items:stretch;padding:12px 14px}
+  main{padding:14px}.th{display:none}
+  .ligne{display:flex;flex-wrap:wrap;gap:6px 12px}.ligne .nom{width:100%}
+}
