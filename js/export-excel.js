@@ -84,6 +84,8 @@ export async function exporterExcel({ equipe, dateFr, dateISO, docs }) {
   const a = document.createElement('a');
   a.href = URL.createObjectURL(new Blob([buf], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }));
   a.download = `Points_${slug}_${dateISO}.xlsx`;
+  document.body.append(a);
   a.click();
+  a.remove();
   setTimeout(() => URL.revokeObjectURL(a.href), 5000);
 }
