@@ -32,4 +32,10 @@
   </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js"></script>
-<script type="module" src="js/accueil.js"></script></body></html>
+<script type="module">
+// Si un fichier manque ou contient une erreur, un message rouge s'affiche en bas de l'écran
+import("./js/accueil.js").catch(e => {
+  const d = document.createElement("div"); d.className = "toast ko";
+  d.textContent = "Chargement impossible : " + (e.message || e); document.body.append(d); console.error(e);
+});
+</script></body></html>

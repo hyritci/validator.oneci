@@ -4,9 +4,10 @@
 <meta name="theme-color" content="#F39200">
 <link rel="icon" href="img/logo-icone.png">
 <title>Connexion · VALIDATOR</title>
-<link rel="stylesheet" href="css/commun.css"></head>
+<link rel="stylesheet" href="css/commun.css">
+<link rel="stylesheet" href="css/liste.css"></head>
 <body><div class="auth">
-<aside class="marque"><div class="marque-carte"><img src="img/logo-complet.png" alt="VALIDATOR"></div></aside>
+<aside class="marque"><div class="marque-carte"><img src="img/logo-complet.png" alt="VALIDATOR"><p>Reçois et suis les points du jour de toutes les équipes.</p></div></aside>
 <main class="formulaire">
   <img class="logo" src="img/logo-complet.png" alt="VALIDATOR">
   <h1>Connexion</h1>
@@ -21,7 +22,10 @@
   <p class="bas">Pas encore de compte ? <a href="inscription.html">Créer un compte</a></p>
 </main></div>
 <script type="module">
-import { LISTE } from "./data/chefs.js";   // liste des noms (chefs et sous-chefs pour l'instant)
-import { connexion } from "./js/auth.js";
-connexion(LISTE);
+// Chargement séparé : si un fichier manque ou contient une erreur, le message s'affiche sous le formulaire
+try {
+  const { LISTE } = await import("./data/chefs.js");   // liste des noms (chefs et sous-chefs pour l'instant)
+  const { connexion } = await import("./js/auth.js");
+  connexion(LISTE);
+} catch (e) { document.getElementById("msg").textContent = "Chargement impossible : " + (e.message || e); console.error(e); }
 </script></body></html>

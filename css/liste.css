@@ -1,0 +1,11 @@
+:root{--gris:#e9eaec;--orange:#F39200}
+/* liste de recherche des noms */
+.lr{position:relative}
+.lr-btn{width:100%;height:56px;border:0;border-radius:28px;background:var(--gris);padding:0 20px;display:flex;justify-content:space-between;align-items:center;gap:10px;font:inherit;color:#8a8d91;text-align:left}
+.lr-btn span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.lr-btn.plein{color:#111}
+.lr-btn i{flex:none;border:7px solid transparent;border-top-color:#777;margin-top:7px}
+.lr.ouvert .lr-btn i{transform:rotate(180deg);margin-top:-7px}
+.lr-panel{position:absolute;z-index:5;left:0;right:0;top:62px;background:#f1f2fa;border-radius:12px;box-shadow:0 8px 24px #0003;padding-top:6px}
+.lr-q{height:46px;border-radius:0;margin:0 8px 6px;width:calc(100% - 16px);border:1px solid #cfd2e3}
+.lr ul{list-style:none;margin:0;padding:0;max-height:min(260px,40dvh);overflow:auto}
+.lr li{padding:14px 20px;font-size:17px}.lr li:hover,.lr li.sel{background:var(--orange);color:#fff}.lr li.vide{color:#777;background:none}
