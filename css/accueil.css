@@ -53,3 +53,25 @@ main{padding:24px}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:50;max-width:min(92vw,460px);padding:12px 18px;border-radius:12px;color:#fff;font-weight:600;box-shadow:0 8px 24px rgba(0,0,0,.25)}
 .toast.ok{background:#1f8a3e}.toast.ko{background:#c62828}
 @media(max-width:700px){.toast{bottom:76px}}
+
+/* Info-bulle au survol d'une icône du menu (le nom vient de data-titre, défini dans js/menu-lateral.js) */
+.cote{z-index:20}
+.cote [data-titre]{position:relative}
+.cote [data-titre]::after{content:attr(data-titre);position:absolute;left:calc(100% + 12px);top:50%;transform:translateY(-50%);padding:6px 12px;border-radius:8px;background:#222;color:#fff;font-size:13px;font-weight:600;white-space:nowrap;box-shadow:0 4px 14px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .15s}
+.cote [data-titre]::before{content:"";position:absolute;left:calc(100% + 2px);top:50%;transform:translateY(-50%);border:6px solid transparent;border-right-color:#222;opacity:0;pointer-events:none;transition:opacity .15s}
+.cote [data-titre]:hover::after,.cote [data-titre]:hover::before,.cote [data-titre]:focus-visible::after,.cote [data-titre]:focus-visible::before{opacity:1}
+.cote a:hover,.cote button:hover{background:rgba(255,255,255,.2)}
+@media(max-width:700px){
+  .cote [data-titre]::after{left:50%;top:auto;bottom:calc(100% + 12px);transform:translateX(-50%)}
+  .cote [data-titre]::before{display:none}
+}
+
+/* Pages pas encore faites */
+.titre-page{margin:0;font-size:22px}
+.page-vide{padding:60px 20px;text-align:center;color:#6b7280}
+
+/* Absents */
+.tableau.abs{--cols:minmax(150px,1.3fr) minmax(110px,.9fr) minmax(170px,1.6fr) minmax(110px,.8fr) 90px}
+.outils label{align-self:center;font-weight:600;color:#555}
+.pilule{display:inline-block;padding:3px 14px;border-radius:99px;font-size:13px;font-weight:700}
+.pilule.oui{background:#e6f5ec;color:#0b6b33}.pilule.non{background:#fdeaea;color:#c62828}.pilule.nd{background:#eee;color:#666}

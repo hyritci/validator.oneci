@@ -4,38 +4,16 @@
 <meta name="theme-color" content="#F39200">
 <link rel="icon" href="img/logo-icone.png">
 <title>Accueil · VALIDATOR</title>
-<link rel="stylesheet" href="css/commun.css"><link rel="stylesheet" href="css/accueil.css"></head>
+<link rel="stylesheet" href="css/commun.css">
+<link rel="stylesheet" href="css/accueil.css"></head>
 <body class="tdb">
 <div class="app">
-  <nav class="cote" aria-label="Navigation">
-    <img src="img/logo-icone.png" alt="VALIDATOR">
-    <a class="actif" href="index.html" aria-label="Accueil" title="Accueil"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg></a>
-    <button class="bas" id="quitter" aria-label="Se déconnecter" title="Se déconnecter"><svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg></button>
-  </nav>
+  <nav class="cote" id="cote" aria-label="Navigation"></nav>
   <div class="contenu">
-    <header class="barre">
-      <div class="equipe"><select id="equipe" aria-label="Équipe"></select><small id="heures"></small></div>
-      <p class="jour">Points du : <select id="jour" aria-label="Choisir le jour"></select><span class="etat" id="etat">Connexion…</span></p>
-      <button class="btn-excel" id="export">EXPORTER EN EXCEL</button>
-    </header>
-    <main>
-      <section class="cartes" id="cartes" aria-label="Totaux par scénario"></section>
-      <section class="outils">
-        <input id="recherche" type="text" placeholder="Recherche par nom &amp; prénom" autocomplete="off" aria-label="Recherche par nom et prénom">
-        <select id="filtre" aria-label="Filtrer par scénario"></select>
-      </section>
-      <section class="tableau" id="tableau">
-        <div class="ligne th"><span>Nom &amp; Prénoms</span><span class="col-lieu">Lieu &amp; Heure</span><span>Scénario</span><span>Points</span></div>
-        <div id="corps"></div>
-      </section>
-    </main>
+    <header class="barre"><h1 class="titre-page">Accueil</h1></header>
+    <main><p class="page-vide">Les éléments de l'accueil seront ajoutés prochainement. Utilise le menu à gauche.</p></main>
   </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js"></script>
-<script type="module">
-// Si un fichier manque ou contient une erreur, un message rouge s'affiche en bas de l'écran
-import("./js/accueil.js").catch(e => {
-  const d = document.createElement("div"); d.className = "toast ko";
-  d.textContent = "Chargement impossible : " + (e.message || e); document.body.append(d); console.error(e);
-});
-</script></body></html>
+<script type="module" src="js/menu-lateral.js"></script>
+<script type="module" src="js/garde.js"></script>
+</body></html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F39200">
+<link rel="icon" href="img/logo-icone.png">
+<title>Points · VALIDATOR</title>
+<link rel="stylesheet" href="css/commun.css"><link rel="stylesheet" href="css/accueil.css"></head>
+<body class="tdb">
+<div class="app">
+  <nav class="cote" id="cote" aria-label="Navigation"></nav>
+  <div class="contenu">
+    <header class="barre">
+      <div class="equipe"><select id="equipe" aria-label="Équipe"></select><small id="heures"></small></div>
+      <p class="jour">Points du : <select id="jour" aria-label="Choisir le jour"></select><span class="etat" id="etat">Connexion…</span></p>
+      <button class="btn-excel" id="export">EXPORTER EN EXCEL</button>
+    </header>
+    <main>
+      <section class="cartes" id="cartes" aria-label="Totaux par scénario"></section>
+      <section class="outils">
+        <input id="recherche" type="text" placeholder="Recherche par nom &amp; prénom" autocomplete="off" aria-label="Recherche par nom et prénom">
+        <select id="filtre" aria-label="Filtrer par scénario"></select>
+      </section>
+      <section class="tableau" id="tableau">
+        <div class="ligne th"><span>Nom &amp; Prénoms</span><span class="col-lieu">Lieu &amp; Heure</span><span>Scénario</span><span>Points</span></div>
+        <div id="corps"></div>
+      </section>
+    </main>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js"></script>
+<script type="module" src="js/menu-lateral.js"></script>
+<script type="module">
+// Si un fichier manque ou contient une erreur, un message rouge s'affiche en bas de l'écran
+import("./js/points.js").catch(e => {
+  const d = document.createElement("div"); d.className = "toast ko";
+  d.textContent = "Chargement impossible : " + (e.message || e); document.body.append(d); console.error(e);
+});
+</script></body></html>
