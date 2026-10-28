@@ -10,10 +10,50 @@
 <div class="app">
   <nav class="cote" id="cote" aria-label="Navigation"></nav>
   <div class="contenu">
-    <header class="barre"><h1 class="titre-page">Justificatifs</h1></header>
-    <main><p class="page-vide">Cette page sera créée prochainement.</p></main>
+    <header class="barre">
+      <h1 class="titre-page">JUSTIFICATIFS</h1>
+      <span class="etat" id="etat">Connexion…</span>
+    </header>
+    <main>
+      <section class="outils">
+        <input id="recherche" type="text" placeholder="Recherche par nom &amp; prénom" autocomplete="off" aria-label="Recherche par nom et prénom">
+      </section>
+      <section class="tableau just" id="tableau">
+        <div class="ligne th"><span>Nom &amp; Prénom agent</span><span>Jour d'absence</span><span>Motif d'absence</span><span>Justifier</span></div>
+        <div id="corps"></div>
+      </section>
+    </main>
   </div>
 </div>
+
+<!-- Fenêtre : justificatifs envoyés (images et PDF) -->
+<div class="modal-fond" id="viewer" hidden>
+  <div class="modal-boite" role="dialog" aria-modal="true" aria-labelledby="viewer-titre">
+    <div class="modal-tete">
+      <div><h2 id="viewer-titre"></h2><p class="modal-sous" id="viewer-sous"></p></div>
+      <button type="button" class="fermer" id="viewer-fermer" aria-label="Fermer">✕</button>
+    </div>
+    <div class="just-grille" id="viewer-corps"></div>
+    <div class="modal-pied"><button type="button" class="retirer" id="viewer-retirer">Retirer de la liste</button></div>
+  </div>
+</div>
+
+<!-- Fenêtre : confirmation avant de retirer -->
+<div class="modal-fond" id="confirm" hidden>
+  <div class="modal-boite petit" role="dialog" aria-modal="true" aria-labelledby="confirm-texte">
+    <p class="confirm-texte" id="confirm-texte"></p>
+    <div class="confirm-actions">
+      <button type="button" class="btn-non" id="confirm-non">Non</button>
+      <button type="button" class="btn-oui" id="confirm-oui">Oui</button>
+    </div>
+  </div>
+</div>
+
 <script type="module" src="js/menu-lateral.js"></script>
-<script type="module" src="js/garde.js"></script>
-</body></html>
+<script type="module">
+// Si un fichier manque ou contient une erreur, un message rouge s'affiche en bas de l'écran
+import("./js/justificatifs.js").catch(e => {
+  const d = document.createElement("div"); d.className = "toast ko";
+  d.textContent = "Chargement impossible : " + (e.message || e); document.body.append(d); console.error(e);
+});
+</script></body></html>

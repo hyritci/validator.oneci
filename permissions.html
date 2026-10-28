@@ -10,10 +10,27 @@
 <div class="app">
   <nav class="cote" id="cote" aria-label="Navigation"></nav>
   <div class="contenu">
-    <header class="barre"><h1 class="titre-page">Demande de permission</h1></header>
-    <main><p class="page-vide">Cette page sera créée prochainement.</p></main>
+    <header class="barre">
+      <h1 class="titre-page">DEMANDE DE PERMISSION</h1>
+      <span class="etat" id="etat">Connexion…</span>
+    </header>
+    <main>
+      <section class="outils">
+        <input id="recherche" type="text" placeholder="Recherche par nom &amp; prénom" autocomplete="off" aria-label="Recherche par nom et prénom">
+      </section>
+      <section class="tableau perm" id="tableau">
+        <div class="ligne th"><span>Nom &amp; Prénoms</span><span>Date de demande</span><span>Période de la demande</span><span>Motif de la demande</span><span></span></div>
+        <div id="corps"></div>
+      </section>
+    </main>
   </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script type="module" src="js/menu-lateral.js"></script>
-<script type="module" src="js/garde.js"></script>
-</body></html>
+<script type="module">
+// Si un fichier manque ou contient une erreur, un message rouge s'affiche en bas de l'écran
+import("./js/permissions.js").catch(e => {
+  const d = document.createElement("div"); d.className = "toast ko";
+  d.textContent = "Chargement impossible : " + (e.message || e); document.body.append(d); console.error(e);
+});
+</script></body></html>
